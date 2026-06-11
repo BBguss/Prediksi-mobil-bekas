@@ -1,0 +1,225 @@
+[
+  {
+    "id": "custom-1778424089309",
+    "name": "Model A (KNN)",
+    "algorithm": "K-Nearest Neighbors (Kustom)",
+    "description": "Model kustom dari Playground. Algoritma: KNN.",
+    "pros": [
+      "Disesuaikan oleh pengguna"
+    ],
+    "cons": [
+      "Belum divalidasi secara ekstensif"
+    ],
+    "hyperparameters": {
+      "n_neighbors": 5,
+      "weights": "distance",
+      "p": 1
+    },
+    "metrics": {
+      "r2": 0.8934,
+      "mse": 0.0505,
+      "rmse": 0.2247
+    },
+    "features_used": [
+      "year",
+      "km_driven",
+      "mileage",
+      "engine",
+      "max_power",
+      "seats",
+      "fuel",
+      "seller_type",
+      "transmission",
+      "owner",
+      "torque_clean",
+      "rpm_min",
+      "rpm_max"
+    ],
+    "createdAt": "2026-05-10T14:41:29.632Z",
+    "builtin": false
+  },
+  {
+    "id": "custom_knn_1780639406515",
+    "name": "Model A (KNN)",
+    "algorithm": "K-Nearest Neighbors (Kustom)",
+    "description": "Model kustom dari Playground. Algoritma: KNN. Dilatih pada dataset currency INR.",
+    "pros": [
+      "Disesuaikan oleh pengguna",
+      "File .sav tersimpan — bisa dipakai prediksi"
+    ],
+    "cons": [
+      "Belum divalidasi secara ekstensif"
+    ],
+    "hyperparameters": {
+      "n_neighbors": 5,
+      "weights": "distance",
+      "p": 1
+    },
+    "metrics": {
+      "r2_train": 0.9976,
+      "r2_test": 0.8909,
+      "rmse_train": 0.0344,
+      "rmse_test": 0.2301
+    },
+    "model_path": "E:\\Workspace\\Project Kolab\\Prediksi_Model\\backend\\src\\models\\custom_knn_1780639406515.sav",
+    "currency": "INR",
+    "features_used": [
+      "year",
+      "km_driven",
+      "mileage",
+      "engine",
+      "max_power",
+      "seats",
+      "fuel",
+      "seller_type",
+      "transmission",
+      "owner",
+      "torque_clean",
+      "rpm_min",
+      "rpm_max"
+    ],
+    "createdAt": "2026-06-05T06:03:37.975Z",
+    "builtin": false
+  },
+  {
+    "id": "retrained_dt_1781178131903",
+    "name": "Decision Tree Regressor (Retrained 11/6/2026)",
+    "algorithm": "Decision Tree Regressor",
+    "description": "Model retrained dengan 1 data feedback (hybrid (actual + predicted fallback)) pada dataset currency INR.",
+    "pros": [
+      "Disesuaikan dengan data feedback user",
+      "Menggunakan data terbaru"
+    ],
+    "cons": [
+      "Sebagian data tanpa harga aktual — bisa mengulang bias model lama"
+    ],
+    "hyperparameters": {
+      "max_depth": 10,
+      "min_samples_split": 5,
+      "min_samples_leaf": 2
+    },
+    "metrics": {
+      "r2_train": 0.9192,
+      "r2_test": 0.8848,
+      "rmse_train": 0.1994,
+      "rmse_test": 0.2398
+    },
+    "model_path": "E:\\Workspace\\Project Kolab\\Prediksi_Model\\backend\\src\\models\\retrained_dt_1781178131903.sav",
+    "currency": "INR",
+    "features_used": [
+      "year",
+      "km_driven",
+      "mileage",
+      "engine",
+      "max_power",
+      "seats",
+      "fuel",
+      "seller_type",
+      "transmission",
+      "owner",
+      "torque_clean",
+      "rpm_min",
+      "rpm_max"
+    ],
+    "retrain_info": {
+      "feedback_rows": 1,
+      "with_actual_price": 1,
+      "prediction_only": 0,
+      "policy": "hybrid",
+      "retrained_at": "2026-06-11T11:42:16.316Z",
+      "dataset_currency": "INR"
+    },
+    "createdAt": "2026-06-11T11:42:16.317Z",
+    "builtin": false
+  },
+  {
+    "id": "retrained_knn_1781184816601",
+    "name": "KNN Regressor (Retrained 11/6/2026)",
+    "algorithm": "KNN Regressor",
+    "description": "Model retrained dengan 2 data feedback (hybrid (actual + predicted fallback)) pada dataset currency INR.",
+    "pros": [
+      "Disesuaikan dengan data feedback user",
+      "Menggunakan data terbaru"
+    ],
+    "cons": [
+      "Sebagian data tanpa harga aktual — bisa mengulang bias model lama"
+    ],
+    "hyperparameters": {},
+    "metrics": {
+      "r2_train": 0.9981,
+      "r2_test": 0.8804,
+      "rmse_train": 0.0311,
+      "rmse_test": 0.2402
+    },
+    "model_path": "E:\\Workspace\\Project Kolab\\Prediksi_Model\\backend\\src\\models\\retrained_knn_1781184816601.sav",
+    "currency": "INR",
+    "features_used": [
+      "year",
+      "km_driven",
+      "mileage",
+      "engine",
+      "max_power",
+      "seats",
+      "fuel",
+      "seller_type",
+      "transmission",
+      "owner",
+      "torque_clean",
+      "rpm_min",
+      "rpm_max"
+    ],
+    "retrain_info": {
+      "feedback_rows": 2,
+      "with_actual_price": 1,
+      "prediction_only": 1,
+      "policy": "hybrid",
+      "retrained_at": "2026-06-11T13:33:57.520Z",
+      "dataset_currency": "INR"
+    },
+    "createdAt": "2026-06-11T13:33:57.522Z",
+    "builtin": false
+  },
+  {
+    "id": "custom_knn_1781185079891",
+    "name": "Model A (KNN)",
+    "algorithm": "K-Nearest Neighbors (Kustom)",
+    "description": "Model kustom dari Playground. Algoritma: KNN. Dilatih pada dataset currency INR.",
+    "pros": [
+      "Disesuaikan oleh pengguna",
+      "File .sav tersimpan — bisa dipakai prediksi"
+    ],
+    "cons": [
+      "Belum divalidasi secara ekstensif"
+    ],
+    "hyperparameters": {
+      "n_neighbors": 5,
+      "weights": "distance",
+      "p": 1
+    },
+    "metrics": {
+      "r2_train": 0.9976,
+      "r2_test": 0.8909,
+      "rmse_train": 0.0344,
+      "rmse_test": 0.2301
+    },
+    "model_path": "E:\\Workspace\\Project Kolab\\Prediksi_Model\\backend\\src\\models\\custom_knn_1781185079891.sav",
+    "currency": "INR",
+    "features_used": [
+      "year",
+      "km_driven",
+      "mileage",
+      "engine",
+      "max_power",
+      "seats",
+      "fuel",
+      "seller_type",
+      "transmission",
+      "owner",
+      "torque_clean",
+      "rpm_min",
+      "rpm_max"
+    ],
+    "createdAt": "2026-06-11T13:38:22.889Z",
+    "builtin": false
+  }
+]

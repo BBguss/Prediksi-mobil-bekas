@@ -1,0 +1,52 @@
+[
+  {
+    "id": "fb_1780642989127_0j046u",
+    "createdAt": "2026-06-05T07:03:09.127Z",
+    "features": {
+      "year": 2018,
+      "km_driven": 45000,
+      "fuel": "Petrol",
+      "seller_type": "Individual",
+      "transmission": "Automatic",
+      "owner": "First Owner",
+      "mileage": 18.5,
+      "engine": 1197,
+      "max_power": 82,
+      "seats": 5,
+      "torque_clean": 113,
+      "rpm_min": 4200,
+      "rpm_max": 5200
+    },
+    "actual_price": 106,
+    "predicted_price": 547353.68,
+    "model_id": "dt",
+    "currency": "INR",
+    "source": "prediction",
+    "has_label": true
+  },
+  {
+    "id": "fb_1781182049836_wzj1xj",
+    "createdAt": "2026-06-11T12:47:29.836Z",
+    "features": {
+      "year": 2018,
+      "km_driven": 45000,
+      "fuel": "Petrol",
+      "seller_type": "Individual",
+      "transmission": "Manual",
+      "owner": "First Owner",
+      "mileage": 18.5,
+      "engine": 1197,
+      "max_power": 82,
+      "seats": 5,
+      "torque_clean": 113,
+      "rpm_min": 4200,
+      "rpm_max": 5200
+    },
+    "actual_price": null,
+    "predicted_price": 544025.03,
+    "model_id": "rf",
+    "currency": "INR",
+    "source": "prediction",
+    "has_label": false
+  }
+]

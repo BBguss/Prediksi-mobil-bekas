@@ -1,0 +1,1 @@
+option wget_ssl wget-ssl /opt/etc/opkg.conf

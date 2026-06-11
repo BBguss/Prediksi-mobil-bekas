@@ -1,0 +1,5 @@
+{
+  "name": "Prediksi Harga Mobil",
+  "description": "Aplikasi web full-stack yang memprediksi harga mobil bekas menggunakan model Machine Learning (KNN dan Decision Tree).",
+  "requestFramePermissions": []
+}

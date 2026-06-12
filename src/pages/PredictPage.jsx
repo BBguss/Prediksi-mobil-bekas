@@ -358,13 +358,6 @@ export default function PredictPage() {
         )}
       </div>
 
-      {!modelsLoaded && (
-        <div className="mb-4 flex items-center gap-2 text-xs text-gray-500">
-          <div className="animate-spin rounded-full h-3 w-3 border-b border-cyan-500"/>
-          Memuat daftar model terbaru...
-        </div>
-      )}
-
       <div className="mb-4"><DatasetBanner info={activeDataset} /></div>
 
       {/* Mode tabs */}

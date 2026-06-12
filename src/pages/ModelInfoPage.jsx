@@ -54,32 +54,65 @@ const useCasesById = {
   ],
 };
 
+const ALL_FEATURES = [
+  'year','km_driven','mileage','engine','max_power','seats',
+  'fuel','seller_type','transmission','owner',
+  'torque_clean','rpm_min','rpm_max',
+  'car_age','km_per_year','power_to_engine',
+];
+
+const BUILTIN_MODELS = [
+  {
+    id: 'knn',
+    name: 'KNN Regressor',
+    algorithm: 'K-Nearest Neighbors',
+    description: 'Memprediksi harga mobil berdasarkan kemiripan fitur dengan data training. Menggunakan RobustScaler dan log-transform harga untuk akurasi optimal.',
+    pros: ['Mudah dipahami', 'Tidak ada asumsi distribusi data', 'Mampu memodelkan hubungan non-linear'],
+    cons: ['Komputasi mahal untuk dataset besar', 'Sensitif terhadap fitur tidak relevan', 'Membutuhkan penyimpanan seluruh dataset'],
+    hyperparameters: { n_neighbors: 5, weights: 'distance', p: 1 },
+    features_used: ALL_FEATURES,
+    builtin: true,
+  },
+  {
+    id: 'dt',
+    name: 'Decision Tree Regressor',
+    algorithm: 'Decision Tree',
+    description: 'Memprediksi harga mobil lewat aturan if-else yang dipelajari dari data. Mudah diinterpretasikan dan efisien secara komputasi.',
+    pros: ['Sangat mudah diinterpretasikan', 'Perlu sedikit persiapan data', 'Menangani fitur numerik dan kategorikal'],
+    cons: ['Rentan overfitting', 'Tidak stabil dengan variasi data kecil', 'Prediksi tidak halus (fungsi tangga)'],
+    hyperparameters: { max_depth: 10, min_samples_split: 5, min_samples_leaf: 2 },
+    features_used: ALL_FEATURES,
+    builtin: true,
+  },
+  {
+    id: 'rf',
+    name: 'Random Forest Regressor',
+    algorithm: 'Random Forest',
+    description: 'Model ensemble dari ratusan Decision Tree yang dilatih secara paralel. Sangat robust terhadap overfitting dan biasanya menghasilkan akurasi tertinggi.',
+    pros: ['Sangat tahan overfitting', 'Performa konsisten tanpa banyak tuning', 'Menangani fitur numerik dan kategorikal dengan baik'],
+    cons: ['Lebih lambat saat training dibanding single tree', 'Sulit diinterpretasikan secara individual', 'Membutuhkan lebih banyak memori'],
+    hyperparameters: { n_estimators: 300, max_depth: 20, min_samples_split: 5, min_samples_leaf: 2 },
+    features_used: ALL_FEATURES,
+    builtin: true,
+  },
+];
+
 export default function ModelInfoPage() {
-  const [models, setModels] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [models, setModels] = useState(BUILTIN_MODELS);
 
   useEffect(() => {
     const load = async () => {
       try {
         const data = await getModels();
-        setModels(data);
+        if (Array.isArray(data) && data.length > 0) {
+          setModels(data);
+        }
       } catch {
-        setError('Gagal memuat informasi model.');
-      } finally {
-        setLoading(false);
+        console.warn('Gagal memuat informasi model terbaru dari backend.');
       }
     };
     load();
   }, []);
-
-  if (loading) {
-    return <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 text-gray-400">Memuat informasi model...</div>;
-  }
-
-  if (error) {
-    return <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 text-red-400">{error}</div>;
-  }
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 space-y-6">

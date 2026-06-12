@@ -1,21 +1,26 @@
 import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
 export default function PredictionForm({ selectedModel, onSubmit, isLoading }) {
+  const location = useLocation();
+  const stateData = location.state || {};
+
   const [formData, setFormData] = useState({
-    year: 2018,
-    km_driven: 45000,
-    fuel: 'Petrol',
-    seller_type: 'Individual',
-    transmission: 'Manual',
-    owner: 'First Owner',
-    mileage: 18.5,
-    engine: 1197,
-    max_power: 82,
-    seats: 5,
-    torque_clean: 113,
-    rpm_min: 4200,
-    rpm_max: 5200,
+    year: stateData.year ?? 2018,
+    km_driven: stateData.km_driven ?? 45000,
+    fuel: stateData.fuel ?? 'Petrol',
+    seller_type: stateData.seller_type ?? 'Individual',
+    transmission: stateData.transmission ?? 'Manual',
+    owner: stateData.owner ?? 'First Owner',
+    mileage: stateData.mileage ?? 18.5,
+    engine: stateData.engine ?? 1197,
+    max_power: stateData.max_power ?? 82,
+    seats: stateData.seats ?? 5,
+    torque_clean: stateData.torque_clean ?? 113,
+    rpm_min: stateData.rpm_min ?? 4200,
+    rpm_max: stateData.rpm_max ?? 5200,
   });
+
 
   // Semua model (knn, dt, rf) menggunakan pipeline identik dengan torque/rpm
   // Selalu tampilkan field torque
